@@ -1,0 +1,20 @@
+# .github/workflows/workflow-horario-e-push.yml
+name: Executar em push e a cada hora
+
+on:
+  push:
+    branches:
+      - main  # ou o nome do seu branch principal
+  schedule:
+    - cron: '0 * * * *'  # executa a cada hora no minuto 0 (horário UTC)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checar código
+        uses: actions/checkout@v3
+
+      - name: Executar script ou tarefa
+        run: echo "Workflow executado com sucesso!"
